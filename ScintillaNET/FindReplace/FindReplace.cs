@@ -546,7 +546,12 @@ namespace ScintillaNET
             _lastReplaceAllRangeToSearch = rangeToSearch;
             _lastReplaceAllOffset = 0;
 
-            findExpression.Replace(rangeToSearch.Text, new MatchEvaluator(ReplaceAllEvaluator));
+            //FIX: Access SQL Editor Issue #161: When there is a unicode char in query, Find/Replace doesn't work properly
+            //findExpression.Replace was passing rangeToSearch.Text directly. Changed to an
+            //indirect replacement rather than direct.
+            String rangeText = rangeToSearch.Text;
+            rangeText = findExpression.Replace(rangeText, new MatchEvaluator(ReplaceAllEvaluator));
+            rangeToSearch.Text = rangeText;
 
             Scintilla.UndoRedo.EndUndoAction();
 
