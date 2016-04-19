@@ -176,7 +176,7 @@ namespace ScintillaNET
             this.chkHighlightMatches.Name = "chkHighlightMatches";
             this.chkHighlightMatches.Size = new System.Drawing.Size(110, 17);
             this.chkHighlightMatches.TabIndex = 1;
-            this.chkHighlightMatches.Text = "&Highlight Matches";
+            this.chkHighlightMatches.Text = "High&light Matches";
             this.chkHighlightMatches.UseVisualStyleBackColor = true;
             // 
             // chkMarkLine
