@@ -89,6 +89,7 @@ namespace ScintillaNET
             this.lblFindR = new System.Windows.Forms.Label();
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.lblStatus = new System.Windows.Forms.ToolStripStatusLabel();
+            this.chkEscCharsRepl = new System.Windows.Forms.CheckBox();
             this.tabAll.SuspendLayout();
             this.tpgFind.SuspendLayout();
             this.grpFindAll.SuspendLayout();
@@ -110,7 +111,7 @@ namespace ScintillaNET
             this.tabAll.Location = new System.Drawing.Point(0, 0);
             this.tabAll.Name = "tabAll";
             this.tabAll.SelectedIndex = 0;
-            this.tabAll.Size = new System.Drawing.Size(499, 291);
+            this.tabAll.Size = new System.Drawing.Size(499, 296);
             this.tabAll.TabIndex = 0;
             this.tabAll.SelectedIndexChanged += new System.EventHandler(this.tabAll_SelectedIndexChanged);
             // 
@@ -130,7 +131,7 @@ namespace ScintillaNET
             this.tpgFind.Location = new System.Drawing.Point(4, 22);
             this.tpgFind.Name = "tpgFind";
             this.tpgFind.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgFind.Size = new System.Drawing.Size(491, 265);
+            this.tpgFind.Size = new System.Drawing.Size(491, 270);
             this.tpgFind.TabIndex = 0;
             this.tpgFind.Text = "Find";
             this.tpgFind.UseVisualStyleBackColor = true;
@@ -468,7 +469,7 @@ namespace ScintillaNET
             this.tpgReplace.Location = new System.Drawing.Point(4, 22);
             this.tpgReplace.Name = "tpgReplace";
             this.tpgReplace.Padding = new System.Windows.Forms.Padding(3);
-            this.tpgReplace.Size = new System.Drawing.Size(491, 265);
+            this.tpgReplace.Size = new System.Drawing.Size(491, 270);
             this.tpgReplace.TabIndex = 1;
             this.tpgReplace.Text = "Replace";
             this.tpgReplace.UseVisualStyleBackColor = true;
@@ -476,7 +477,7 @@ namespace ScintillaNET
             // btnReplaceAll
             // 
             this.btnReplaceAll.Enabled = false;
-            this.btnReplaceAll.Location = new System.Drawing.Point(7, 212);
+            this.btnReplaceAll.Location = new System.Drawing.Point(7, 216);
             this.btnReplaceAll.Name = "btnReplaceAll";
             this.btnReplaceAll.Size = new System.Drawing.Size(107, 23);
             this.btnReplaceAll.TabIndex = 10;
@@ -529,7 +530,7 @@ namespace ScintillaNET
             // 
             this.btnReplacePrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReplacePrevious.Enabled = false;
-            this.btnReplacePrevious.Location = new System.Drawing.Point(375, 188);
+            this.btnReplacePrevious.Location = new System.Drawing.Point(375, 192);
             this.btnReplacePrevious.Name = "btnReplacePrevious";
             this.btnReplacePrevious.Size = new System.Drawing.Size(107, 23);
             this.btnReplacePrevious.TabIndex = 11;
@@ -541,7 +542,7 @@ namespace ScintillaNET
             // 
             this.btnReplaceNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnReplaceNext.Enabled = false;
-            this.btnReplaceNext.Location = new System.Drawing.Point(375, 212);
+            this.btnReplaceNext.Location = new System.Drawing.Point(375, 216);
             this.btnReplaceNext.Name = "btnReplaceNext";
             this.btnReplaceNext.Size = new System.Drawing.Size(107, 23);
             this.btnReplaceNext.TabIndex = 12;
@@ -564,11 +565,11 @@ namespace ScintillaNET
             // 
             this.grdOptionsR.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.grdOptionsR.Controls.Add(this.pnlStandardOptionsR);
             this.grdOptionsR.Controls.Add(this.pnlRegexpOptionsR);
+            this.grdOptionsR.Controls.Add(this.pnlStandardOptionsR);
             this.grdOptionsR.Location = new System.Drawing.Point(4, 94);
             this.grdOptionsR.Name = "grdOptionsR";
-            this.grdOptionsR.Size = new System.Drawing.Size(481, 77);
+            this.grdOptionsR.Size = new System.Drawing.Size(481, 92);
             this.grdOptionsR.TabIndex = 9;
             this.grdOptionsR.TabStop = false;
             this.grdOptionsR.Text = "Options";
@@ -581,7 +582,7 @@ namespace ScintillaNET
             this.pnlStandardOptionsR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlStandardOptionsR.Location = new System.Drawing.Point(3, 17);
             this.pnlStandardOptionsR.Name = "pnlStandardOptionsR";
-            this.pnlStandardOptionsR.Size = new System.Drawing.Size(475, 57);
+            this.pnlStandardOptionsR.Size = new System.Drawing.Size(475, 72);
             this.pnlStandardOptionsR.TabIndex = 0;
             // 
             // chkWordStartR
@@ -616,6 +617,7 @@ namespace ScintillaNET
             // 
             // pnlRegexpOptionsR
             // 
+            this.pnlRegexpOptionsR.Controls.Add(this.chkEscCharsRepl);
             this.pnlRegexpOptionsR.Controls.Add(this.chkSinglelineR);
             this.pnlRegexpOptionsR.Controls.Add(this.chkRightToLeftR);
             this.pnlRegexpOptionsR.Controls.Add(this.chkMultilineR);
@@ -628,7 +630,7 @@ namespace ScintillaNET
             this.pnlRegexpOptionsR.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnlRegexpOptionsR.Location = new System.Drawing.Point(3, 17);
             this.pnlRegexpOptionsR.Name = "pnlRegexpOptionsR";
-            this.pnlRegexpOptionsR.Size = new System.Drawing.Size(475, 57);
+            this.pnlRegexpOptionsR.Size = new System.Drawing.Size(475, 72);
             this.pnlRegexpOptionsR.TabIndex = 1;
             // 
             // chkSinglelineR
@@ -768,7 +770,7 @@ namespace ScintillaNET
             // 
             this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.lblStatus});
-            this.statusStrip.Location = new System.Drawing.Point(0, 269);
+            this.statusStrip.Location = new System.Drawing.Point(0, 274);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(499, 22);
             this.statusStrip.SizingGrip = false;
@@ -780,12 +782,22 @@ namespace ScintillaNET
             this.lblStatus.Name = "lblStatus";
             this.lblStatus.Size = new System.Drawing.Size(0, 17);
             // 
+            // chkEscCharsRepl
+            // 
+            this.chkEscCharsRepl.AutoSize = true;
+            this.chkEscCharsRepl.Location = new System.Drawing.Point(3, 55);
+            this.chkEscCharsRepl.Name = "chkEscCharsRepl";
+            this.chkEscCharsRepl.Size = new System.Drawing.Size(233, 17);
+            this.chkEscCharsRepl.TabIndex = 9;
+            this.chkEscCharsRepl.Text = "Escape Chars in Replace (\\r,\\n, \\xNN, etc.)";
+            this.chkEscCharsRepl.UseVisualStyleBackColor = true;
+            // 
             // FindReplaceDialog
             // 
             this.AcceptButton = this.btnFindNext;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(499, 291);
+            this.ClientSize = new System.Drawing.Size(499, 296);
             this.Controls.Add(this.statusStrip);
             this.Controls.Add(this.tabAll);
             this.Font = new System.Drawing.Font("Tahoma", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -885,5 +897,6 @@ namespace ScintillaNET
         internal System.Windows.Forms.CheckBox chkSearchSelectionR;
         internal System.Windows.Forms.ComboBox cboFindF;
         internal System.Windows.Forms.ComboBox cboFindR;
+        private System.Windows.Forms.CheckBox chkEscCharsRepl;
     }
 }
