@@ -67,7 +67,8 @@
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'PreAlpha|AnyCPU'">
     <OutputPath>bin\PreAlpha\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
+    <DefineConstants>
+    </DefineConstants>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <DocumentationFile>bin\Release\ScintillaNET.xml</DocumentationFile>
     <Optimize>true</Optimize>
