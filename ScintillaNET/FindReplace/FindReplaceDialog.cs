@@ -158,6 +158,26 @@ namespace ScintillaNET
             FindPrevious();
         }
 
+        private string Unescape(string txt)
+        {
+            if (!chkEscCharsRepl.Checked)
+                return txt;
+
+            return Regex.Unescape(txt);
+        }
+
+        private List<Range> ReplaceAllRegex(Regex regEx, string txt, Range searchRange = null)
+        {
+            txt = Unescape(txt);
+            if (searchRange == null)
+            {
+                return Scintilla.FindReplace.ReplaceAll(regEx, txt);
+            }
+            else
+            {
+                return Scintilla.FindReplace.ReplaceAll(searchRange, regEx, txt);
+            }
+        }
 
         private void btnReplaceAll_Click(object sender, EventArgs e)
         {
@@ -188,12 +208,14 @@ namespace ScintillaNET
                         _searchRange = Scintilla.Selection.Range;
                     }
 
-                    foundRanges = Scintilla.FindReplace.ReplaceAll(_searchRange, rr, cboReplace.Text);
+                    //foundRanges = Scintilla.FindReplace.ReplaceAll(_searchRange, rr, cboReplace.Text);
+                    foundRanges = ReplaceAllRegex(rr, cboReplace.Text, _searchRange);
                 }
                 else
                 {
                     _searchRange = null;
-                    foundRanges = Scintilla.FindReplace.ReplaceAll(rr, cboReplace.Text);
+                    //foundRanges = Scintilla.FindReplace.ReplaceAll(rr, cboReplace.Text);
+                    foundRanges = ReplaceAllRegex(rr, cboReplace.Text);
                 }
             }
             else
@@ -203,12 +225,12 @@ namespace ScintillaNET
                     if (_searchRange == null)
                         _searchRange = Scintilla.Selection.Range;
 
-                    foundRanges = Scintilla.FindReplace.ReplaceAll(_searchRange, cboFindR.Text, cboReplace.Text, GetSearchFlags());
+                    foundRanges = Scintilla.FindReplace.ReplaceAll(_searchRange, cboFindR.Text, Unescape(cboReplace.Text), GetSearchFlags());
                 }
                 else
                 {
                     _searchRange = null;
-                    foundRanges = Scintilla.FindReplace.ReplaceAll(cboFindR.Text, cboReplace.Text, GetSearchFlags());
+                    foundRanges = Scintilla.FindReplace.ReplaceAll(cboFindR.Text, Unescape(cboReplace.Text), GetSearchFlags());
                 }
             }
 
